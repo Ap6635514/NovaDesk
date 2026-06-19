@@ -1,0 +1,7 @@
+PAGE = 30
+
+SECTION = 20
+
+CARD = 15
+
+BUTTON = 10

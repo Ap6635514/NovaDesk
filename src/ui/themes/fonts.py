@@ -1,0 +1,6 @@
+TITLE = ("Segoe UI", 32, "bold")
+HEADING = ("Segoe UI", 24, "bold")
+SUBTITLE = ("Segoe UI", 18)
+BODY = ("Segoe UI", 15)
+SMALL = ("Segoe UI", 13)
+BUTTON = ("Segoe UI", 15, "bold")
