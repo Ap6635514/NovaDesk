@@ -1,3 +1,7 @@
+from src.ui.themes.fonts import *
+from src.ui.themes.spacing import *
+from src.ui.themes.colors import *
+
 import customtkinter as ctk
 from tkinter import filedialog, messagebox
 from pathlib import Path
@@ -24,7 +28,7 @@ class DownloadsPage(ctk.CTkFrame):
         title = ctk.CTkLabel(
             self,
             text="📥 Downloads Organizer",
-            font=("Segoe UI", 30, "bold")
+            font=TITLE
         )
         title.pack(pady=(20, 10))
 
@@ -35,7 +39,7 @@ class DownloadsPage(ctk.CTkFrame):
         self.path_label = ctk.CTkLabel(
             self,
             text=str(self.folder),
-            font=("Segoe UI", 14)
+            font=BODY
         )
         self.path_label.pack(pady=(0, 15))
 
@@ -74,12 +78,12 @@ class DownloadsPage(ctk.CTkFrame):
         # ==========================
 
         stats_frame = ctk.CTkFrame(self)
-        stats_frame.pack(fill="x", padx=40, pady=20)
+        stats_frame.pack(fill="x", padx=PAGE, pady=SECTION)
 
         heading = ctk.CTkLabel(
             stats_frame,
             text="📊 Scan Results",
-            font=("Segoe UI", 22, "bold")
+            font=HEADING
         )
         heading.pack(anchor="w", padx=20, pady=(15, 10))
 
@@ -100,7 +104,7 @@ class DownloadsPage(ctk.CTkFrame):
             lbl = ctk.CTkLabel(
                 stats_frame,
                 text=f"{category}: 0",
-                font=("Segoe UI", 18)
+                font=SUBTITLE
             )
 
             lbl.pack(anchor="w", padx=35, pady=2)
@@ -114,7 +118,7 @@ class DownloadsPage(ctk.CTkFrame):
         self.status = ctk.CTkLabel(
             self,
             text="Ready",
-            font=("Segoe UI", 15)
+            font=BODY
         )
 
         self.status.pack(pady=15)

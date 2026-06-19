@@ -1,3 +1,7 @@
+from src.ui.themes.fonts import *
+from src.ui.themes.spacing import *
+from src.ui.themes.colors import *
+
 import customtkinter as ctk
 
 
@@ -13,7 +17,7 @@ class Sidebar(ctk.CTkFrame):
         title = ctk.CTkLabel(
             self,
             text="🚀 NovaDesk",
-            font=("Segoe UI", 24, "bold")
+            font=HEADING
         )
 
         title.pack(pady=(30, 25))

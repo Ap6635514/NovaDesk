@@ -1,3 +1,7 @@
+from src.ui.themes.fonts import *
+from src.ui.themes.spacing import *
+from src.ui.themes.colors import *
+
 import customtkinter as ctk
 
 
@@ -16,7 +20,7 @@ class StatCard(ctk.CTkFrame):
         ctk.CTkLabel(
             self,
             text=title,
-            font=("Segoe UI", 18, "bold")
+            font=SUBTITLE
         ).pack(pady=(18, 5))
 
         self.value_label = ctk.CTkLabel(

@@ -1,3 +1,7 @@
+from src.ui.themes.fonts import *
+from src.ui.themes.spacing import *
+from src.ui.themes.colors import *
+
 import customtkinter as ctk
 from datetime import datetime
 
@@ -18,13 +22,13 @@ class WelcomeHeader(ctk.CTkFrame):
         title = ctk.CTkLabel(
             self,
             text=greeting,
-            font=("Segoe UI", 30, "bold")
+            font=TITLE
         )
         title.pack(anchor="w")
 
         subtitle = ctk.CTkLabel(
             self,
             text="Ready to explore the cosmos today? 🌌",
-            font=("Segoe UI", 16)
+            font=BODY
         )
         subtitle.pack(anchor="w")

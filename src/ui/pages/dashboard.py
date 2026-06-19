@@ -1,3 +1,7 @@
+from src.ui.themes.fonts import *
+from src.ui.themes.spacing import *
+from src.ui.themes.colors import *
+
 import customtkinter as ctk
 
 from src.ui.components.welcome_header import WelcomeHeader
@@ -20,12 +24,12 @@ class DashboardPage(ctk.CTkFrame):
 
         topbar = ctk.CTkFrame(self, fg_color="transparent")
         topbar.grid(row=0, column=0, columnspan=2,
-                    sticky="ew", padx=30, pady=(25, 10))
+                    sticky="ew", padx=PAGE, pady=(25, 10))
 
         title = ctk.CTkLabel(
             topbar,
             text="🚀 NovaDesk",
-            font=("Segoe UI", 30, "bold")
+            font=TITLE
         )
 
         title.pack(side="left")
@@ -42,8 +46,8 @@ class DashboardPage(ctk.CTkFrame):
             column=0,
             columnspan=2,
             sticky="ew",
-            padx=30,
-            pady=20
+            padx=PAGE,
+            pady=SECTION
         )
 
         # ==========================
@@ -56,7 +60,7 @@ class DashboardPage(ctk.CTkFrame):
             column=0,
             columnspan=2,
             sticky="ew",
-            padx=30
+            padx=PAGE
         )
 
         stats.grid_columnconfigure((0, 1, 2, 3), weight=1)
@@ -95,14 +99,14 @@ class DashboardPage(ctk.CTkFrame):
             column=0,
             columnspan=2,
             sticky="ew",
-            padx=30,
-            pady=25
+            padx=PAGE,
+            pady=SECTION
         )
 
         heading = ctk.CTkLabel(
             action_frame,
             text="⚡ Quick Actions",
-            font=("Segoe UI", 20, "bold")
+            font=HEADING
         )
 
         heading.pack(anchor="w", padx=20, pady=(15, 10))

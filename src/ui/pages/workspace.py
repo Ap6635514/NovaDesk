@@ -1,3 +1,7 @@
+from src.ui.themes.fonts import *
+from src.ui.themes.spacing import *
+from src.ui.themes.colors import *
+
 import customtkinter as ctk
 
 class WorkspacePage(ctk.CTkFrame):
@@ -8,4 +12,4 @@ class WorkspacePage(ctk.CTkFrame):
             self,
             text="🧹 Workspace",
             font=("Segoe UI", 32, "bold")
-        ).pack(padx=30, pady=30, anchor="nw")
+        ).pack(padx=PAGE, pady=30, anchor="nw")
