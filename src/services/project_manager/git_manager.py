@@ -15,6 +15,6 @@ class GitManager:
 
             return True
 
-        except Exception:
+        except subprocess.CalledProcessError:
 
             return False

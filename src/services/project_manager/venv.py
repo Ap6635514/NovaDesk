@@ -1,4 +1,5 @@
 import subprocess
+import sys
 from pathlib import Path
 
 
@@ -9,13 +10,18 @@ class VirtualEnvironment:
         try:
 
             subprocess.run(
-                ["python", "-m", "venv", ".venv"],
+                [
+                    sys.executable,
+                    "-m",
+                    "venv",
+                    ".venv"
+                ],
                 cwd=project_path,
                 check=True
             )
 
             return True
 
-        except Exception:
+        except subprocess.CalledProcessError:
 
             return False

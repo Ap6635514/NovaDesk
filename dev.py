@@ -1,62 +1,58 @@
-import sys
+import argparse
 
-from scripts.dev.commands.run import run
-from scripts.dev.commands.clean import clean
+from src.cli.commands.run import run
+from src.cli.commands.clean import clean
+from src.cli.commands.project import project
 
 VERSION = "0.1.0"
 
 
-def help_menu():
-    print(f"""
-╔════════════════════════════════════════════╗
-║            🌌 NovaDesk Developer CLI       ║
-╚════════════════════════════════════════════╝
-
-Version : {VERSION}
-
-Usage:
-    python dev.py <command>
-
-Available Commands
-
-    🚀 run         Launch NovaDesk
-    🧹 clean       Clean Python cache
-    🧪 test        Run tests
-    📁 project     Project tools
-    🌿 git         Git helper
-    📦 build       Build executable
-    ℹ version      Show CLI version
-    ❓ help         Show this menu
-""")
-
-
-COMMANDS = {
-    "run": run,
-    "clean": clean,
-}
-
-
 def main():
 
-    if len(sys.argv) < 2:
-        help_menu()
-        return
+    parser = argparse.ArgumentParser(
+        prog="NovaDesk",
+        description="🌌 NovaDesk Developer CLI"
+    )
 
-    command = sys.argv[1].lower()
+    parser.add_argument(
+        "-v",
+        "--version",
+        action="version",
+        version=f"NovaDesk CLI {VERSION}"
+    )
 
-    if command in ("help", "-h", "--help"):
-        help_menu()
-        return
+    subparsers = parser.add_subparsers(
+        dest="command",
+        help="Available commands"
+    )
 
-    if command in ("version", "-v", "--version"):
-        print(f"NovaDesk CLI v{VERSION}")
-        return
+    subparsers.add_parser(
+        "run",
+        help="Launch NovaDesk"
+    )
 
-    if command in COMMANDS:
-        COMMANDS[command]()
+    subparsers.add_parser(
+        "clean",
+        help="Clean Python cache"
+    )
+
+    subparsers.add_parser(
+        "project",
+        help="Create a new project"
+    )
+
+    args = parser.parse_args()
+
+    commands = {
+        "run": run,
+        "clean": clean,
+        "project": project,
+    }
+
+    if args.command in commands:
+        commands[args.command]()
     else:
-        print(f"\n❌ Unknown command: {command}\n")
-        help_menu()
+        parser.print_help()
 
 
 if __name__ == "__main__":
