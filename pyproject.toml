@@ -1,15 +1,8 @@
 [project]
 name = "NovaDesk"
-version = "0.1.0"
-description = "A modern productivity desktop application built with Python and CustomTkinter."
-readme = "README.md"
-requires-python = ">=3.12"
-
-dependencies = [
-    "customtkinter>=5.2.2",
-    "Pillow>=11.0.0"
+version = "1.0.0"
+description = "A modern desktop productivity suite built with Python and CustomTkinter."
+authors = [
+    { name = "Abhishek Pandey" }
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-python_files = ["test_*.py"]
+requires-python = ">=3.12"

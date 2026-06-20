@@ -4,7 +4,7 @@ from src.cli.commands.run import run
 from src.cli.commands.clean import clean
 from src.cli.commands.project import project
 
-VERSION = "0.1.0"
+VERSION = "1.0.0"
 
 
 def main():

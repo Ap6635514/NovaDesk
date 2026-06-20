@@ -6,7 +6,7 @@ from src.ui.pages.dashboard import DashboardPage
 from src.ui.pages.projects import ProjectsPage
 from src.ui.pages.downloads import DownloadsPage
 from src.ui.pages.workspace import WorkspacePage
-from src.ui.pages.ai import AIPage
+from src.ui.pages.developer_tools import DeveloperToolsPage
 from src.ui.pages.settings import SettingsPage
 from src.ui.pages.about import AboutPage
 
@@ -36,7 +36,7 @@ class MainWindow(ctk.CTk):
             "projects": ProjectsPage(self.container),
             "downloads": DownloadsPage(self.container),
             "workspace": WorkspacePage(self.container),
-            "ai": AIPage(self.container),
+            "developer_tools": DeveloperToolsPage(self.container),
             "settings": SettingsPage(self.container),
             "about": AboutPage(self.container),
         }

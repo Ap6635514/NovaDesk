@@ -2,8 +2,10 @@ from pathlib import Path
 from tkinter import filedialog
 
 import customtkinter as ctk
+import os
 
 from src.services.project_manager.creator import ProjectCreator
+from src.services.settings import SettingsManager
 
 from src.ui.themes.colors import TEXT_SECONDARY
 from src.ui.themes.fonts import TITLE, BODY
@@ -12,10 +14,26 @@ from src.ui.themes.spacing import PAGE
 
 class ProjectsPage(ctk.CTkFrame):
 
-    def __init__(self, master):
+    def __init__(self, master, settings_manager=None):
         super().__init__(master)
 
-        self.folder = Path.home() / "Projects"
+        # ==================================
+        # Settings
+        # ==================================
+
+        self.settings_manager = settings_manager or SettingsManager()
+        self.settings = self.settings_manager.load()
+
+        # ==================================
+        # Default Project Folder
+        # ==================================
+
+        default_folder = self.settings.get("project_folder", "")
+
+        if default_folder:
+            self.folder = Path(default_folder)
+        else:
+            self.folder = Path.home() / "Projects"
 
         # ==========================
         # Title
@@ -131,6 +149,8 @@ class ProjectsPage(ctk.CTkFrame):
             width=260
         )
 
+        self.framework.set(self.settings["framework"])
+
         self.framework.pack(
             anchor="w",
             pady=(5, 20)
@@ -145,7 +165,8 @@ class ProjectsPage(ctk.CTkFrame):
             text="Initialize Git"
         )
 
-        self.git_checkbox.select()
+        if self.settings["git"]:
+            self.git_checkbox.select()
 
         self.git_checkbox.pack(anchor="w")
 
@@ -154,7 +175,8 @@ class ProjectsPage(ctk.CTkFrame):
             text="Create Virtual Environment"
         )
 
-        self.venv_checkbox.select()
+        if self.settings["venv"]:
+           self.venv_checkbox.select()
 
         self.venv_checkbox.pack(
             anchor="w",
@@ -240,6 +262,11 @@ class ProjectsPage(ctk.CTkFrame):
                 text=f"✅ Project '{project.name}' created successfully!",
                 text_color="green"
             )
+
+            try:
+                os.startfile(project)
+            except Exception:
+                pass
 
         except Exception as e:
 
