@@ -41,15 +41,15 @@ def main():
         help="Create a new project"
     )
 
-    args = parser.parse_args()
-
     commands = {
         "run": run,
         "clean": clean,
         "project": project,
     }
 
-    if args.command in commands:
+    args = parser.parse_args()
+
+    if args.command:
         commands[args.command]()
     else:
         parser.print_help()
