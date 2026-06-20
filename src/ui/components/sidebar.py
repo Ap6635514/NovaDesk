@@ -27,7 +27,7 @@ class Sidebar(ctk.CTkFrame):
             ("📁 Projects", "projects"),
             ("📥 Downloads", "downloads"),
             ("🧹 Workspace", "workspace"),
-            ("🤖 AI Tools", "ai"),
+            ("🛠 Developer Tools", "developer_tools"),
             ("⚙ Settings", "settings"),
             ("ℹ About", "about"),
         ]

@@ -1,4 +1,4 @@
-def banner(version="0.1.0"):
+def banner(version="1.0.0"):
     print(f"""
 ╔════════════════════════════════════════════╗
 ║            🌌 NovaDesk Developer CLI       ║
